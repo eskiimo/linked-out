@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 
 const useFetch = (endpoint, query) => {
+  console.log("process", process.env.RAPID_API_KEY);
   const [data, setData] = useState([]);
   const [isLoading, setIsloading] = useState(false);
   const [error, setError] = useState(null);
@@ -18,7 +19,7 @@ const useFetch = (endpoint, query) => {
   const fetchData = async () => {
     setIsloading(true);
     try {
-      const response = await axios.request(options);
+      // const response = await axios.request(options);
       setData(response.data.data);
       setIsloading(false);
     } catch (error) {
